@@ -114,7 +114,7 @@ SCCSolver::~SCCSolver()
 {
     delete[] adjacencyList;
 
-    for(Vertice* v : vertPool) {
+    for(Vertice*& v : vertPool) {
         delete v;
     }
 }
@@ -139,7 +139,7 @@ std::vector<std::vector<int>> SCCSolver::runDFS() {
 
     std::vector<std::vector<int>> tree;
 
-    for (Vertice* v : vertPool) {
+    for (Vertice*& v : vertPool) {
         if (!v->passed) {
             tree.push_back(std::vector<int>());
 
@@ -182,13 +182,13 @@ void SCCSolver::sortPool() {
 void SCCSolver::refreshPool() {
 
     // Nullable values of all Vertices
-    for (Vertice* v : vertPool) {
+    for (Vertice*& v : vertPool) {
         v->refresh();
     }
 }
 
 Vertice* SCCSolver::getVertice(int id) {
-    for (Vertice* v : vertPool) {
+    for (Vertice*& v : vertPool) {
         if (v->id == id) return v;
     }
 }
