@@ -107,10 +107,6 @@ bool SCCSolver::isInitialized()
     return initialized;
 }
 
-/*
- * You need to remove the curly braces from
- * the header!!!
- */
 SCCSolver::~SCCSolver()
 {
     delete[] adjacencyList;
