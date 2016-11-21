@@ -134,18 +134,13 @@ std::vector<std::vector<int>> SCCSolver::runDFS() {
     // Steps of DFS walking
     int step = 1;
 
-    // Iteration variable for tree
-    int i = 0;
-
     std::vector<std::vector<int>> tree;
 
     for (Vertice*& v : vertPool) {
         if (!v->passed) {
             tree.push_back(std::vector<int>());
 
-            DFSVisit(v, step, tree[i]);
-
-            ++i; // new branch
+            DFSVisit(v, step, tree.back());
         }
     }
 
@@ -188,7 +183,5 @@ void SCCSolver::refreshPool() {
 }
 
 Vertice* SCCSolver::getVertice(int id) {
-    for (Vertice*& v : vertPool) {
-        if (v->id == id) return v;
-    }
+    return *std::find_if(vertPool.begin(), vertPool.end(), [id](Vertice* v){ return v->id == id; });
 }
