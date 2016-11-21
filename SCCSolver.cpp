@@ -36,13 +36,14 @@ void SCCSolver::initialize(std::vector<int> *adjList, int n)
 
     adjacencyList = new std::vector<int>[nVertices];
 
+    // Copy arg to local variable
     for (int i = 0; i < nVertices; i++) {
         adjacencyList[i] = adjList[i];
     }
 
     buildPool();
 
-    solved = false;
+    solved = false; // If we run the algorithm not once
     initialized = true;
 }
 
