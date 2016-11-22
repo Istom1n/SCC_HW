@@ -10,34 +10,14 @@ int main() {
     std::vector<int>* adjList = new std::vector<int>[n];
 
     // First Graph
-    // Node 0
-    adjList[0].push_back(4);
-    adjList[0].push_back(1);
-
-    // Node 1
-    adjList[1].push_back(3);
-    adjList[1].push_back(2);
-
-    // Node 2
-    adjList[2].push_back(1);
-
-    // Node 3
-    adjList[3].push_back(3);
-
-    // Node 4
-    adjList[4].push_back(0);
-    adjList[4].push_back(3);
-
-    // Node 5
-    adjList[5].push_back(6);
-    adjList[5].push_back(2);
-
-    // Node 6
-    adjList[6].push_back(2);
-    adjList[6].push_back(7);
-
-    // Node 7
-    adjList[7].push_back(5);
+    adjList[0] = {4, 1}; // Node 0
+    adjList[1] = {3, 2}; // Node 1
+    adjList[2] = {1};    // Node 2
+    adjList[3] = {3};    // Node 3
+    adjList[4] = {0, 3}; // Node 4
+    adjList[5] = {6, 2}; // Node 5
+    adjList[6] = {2, 7}; // Node 6
+    adjList[7] = {5};    // Node 7
 
     sccSolver->initialize(adjList, n);
     sccSolver->solve();
@@ -50,30 +30,13 @@ int main() {
         adjList[i].clear();
     }
 
-    // Node 0
-    adjList[0].push_back(5);
-    adjList[0].push_back(1);
-
-    // Node 1
-    adjList[1].push_back(2);
-    adjList[1].push_back(5);
-
-    // Node 2
-    adjList[2].push_back(3);
-    adjList[2].push_back(6);
-
-    // Node 4
-    adjList[4].push_back(0);
-
-    // Node 5
-    adjList[5].push_back(4);
-    adjList[5].push_back(6);
-
-    // Node 6
-    adjList[6].push_back(2);
-
-    // Node 7
-    adjList[7].push_back(6);
+    adjList[0] = {5, 1}; // Node 0
+    adjList[1] = {2, 5}; // Node 1
+    adjList[2] = {3, 6}; // Node 2
+    adjList[4] = {0};    // Node 4
+    adjList[5] = {4, 6}; // Node 5
+    adjList[6] = {2};    // Node 6
+    adjList[7] = {6};    // Node 7
 
     sccSolver->initialize(adjList, n);
     sccSolver->solve();
@@ -88,11 +51,8 @@ int main() {
 
     int const k = 2;
 
-    // Node 0
-    adjList[0].push_back(1);
-
-    // Node 1
-    adjList[1].push_back(0);
+    adjList[0] = {1}; // Node 0
+    adjList[1] = {0}; // Node 1
 
     sccSolver->initialize(adjList, k);
     sccSolver->solve();

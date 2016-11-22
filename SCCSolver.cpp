@@ -93,7 +93,7 @@ std::vector<std::vector<int>> SCCSolver::getResult()
     if (isSolved()) {
         return result;
     } else {
-        std::logic_error("Called before initialization");
+        throw std::logic_error("Called before initialization");
     }
 }
 
